@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://fruqpacekfu7"]
+
+[ext_resource type="Texture2D" uid="uid://c6c1kmtuggd4q" path="res://assets/barn.png" id="1_p38cf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vyh0"]
+size = Vector2(214.583, 163.893)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo04l"]
+size = Vector2(202.235, 170.526)
+
+[node name="Barn" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(735.3, 326)
+scale = Vector2(1.21078, 0.84088)
+texture = ExtResource("1_p38cf")
+
+[node name="LeftSteepRoofPanel" type="CollisionShape2D" parent="."]
+position = Vector2(464.496, 293.116)
+rotation = 2.09265
+scale = Vector2(1, 0.999999)
+skew = 1.0472
+shape = SubResource("RectangleShape2D_1vyh0")
+one_way_collision = true
+
+[node name="RightSteepRoofPanel" type="CollisionShape2D" parent="."]
+position = Vector2(1009.84, 286.576)
+rotation = 1.08036
+scale = Vector2(1, 1)
+skew = -1.11003
+shape = SubResource("RectangleShape2D_lo04l")
+one_way_collision = true
+
+[node name="TopRoofPanel" type="CollisionPolygon2D" parent="."]
+position = Vector2(645, 105)
+polygon = PackedVector2Array(-124, 17, 100, -100, 319, 16, 314, 182, -121, 186)

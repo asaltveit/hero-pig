@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://coc8elcva5jic"]
+
+[ext_resource type="Texture2D" uid="uid://b0i1c5uguee1y" path="res://assets/white-fence.png" id="1_xfxem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ic1of"]
+size = Vector2(1036, 33)
+
+[node name="Fence" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(579, 444)
+rotation = 1.5708
+texture = ExtResource("1_xfxem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(581, 351.5)
+shape = SubResource("RectangleShape2D_ic1of")
+one_way_collision = true

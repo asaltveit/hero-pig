@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqie6w5bpj7gy"]
+
+[ext_resource type="Script" path="res://scripts/root.gd" id="1_k1us6"]
+[ext_resource type="PackedScene" uid="uid://4m8v4cmjf4ki" path="res://scenes/parallex_clouds.tscn" id="1_t4e0h"]
+[ext_resource type="Texture2D" uid="uid://dbv67t4phkdhf" path="res://assets/blue-sky.png" id="1_xg6dh"]
+[ext_resource type="PackedScene" uid="uid://csmro283lgpsu" path="res://scenes/floor.tscn" id="3_5wbx8"]
+[ext_resource type="PackedScene" uid="uid://fruqpacekfu7" path="res://scenes/barn.tscn" id="4_nbyd2"]
+[ext_resource type="PackedScene" uid="uid://coc8elcva5jic" path="res://scenes/fence.tscn" id="5_2wakg"]
+[ext_resource type="PackedScene" uid="uid://d4idsp4gdhxf4" path="res://scenes/pig.tscn" id="5_58gbl"]
+[ext_resource type="PackedScene" uid="uid://ix0viy6snbtf" path="res://scenes/power_up.tscn" id="7_ix1sj"]
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="8_ph0jp"]
+
+[node name="Root" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_k1us6")
+
+[node name="BlueSkyBackground" type="TextureRect" parent="."]
+visible = false
+texture_repeat = 2
+offset_left = -216.0
+offset_top = 271.0
+offset_right = 5788.0
+offset_bottom = 603.0
+texture = ExtResource("1_xg6dh")
+expand_mode = 1
+
+[node name="ParallexClouds" parent="." instance=ExtResource("1_t4e0h")]
+
+[node name="Floor" type="CanvasGroup" parent="."]
+
+[node name="LeftMostFloor" parent="Floor" instance=ExtResource("3_5wbx8")]
+position = Vector2(-118, 894)
+
+[node name="CenterFloor" parent="Floor" instance=ExtResource("3_5wbx8")]
+position = Vector2(818, 896)
+
+[node name="RightMostFloor" parent="Floor" instance=ExtResource("3_5wbx8")]
+position = Vector2(1772, 896)
+
+[node name="Barn" parent="." instance=ExtResource("4_nbyd2")]
+position = Vector2(530, 606)
+
+[node name="Fence" parent="." instance=ExtResource("5_2wakg")]
+position = Vector2(1532, 860)
+scale = Vector2(0.7, 0.7)
+
+[node name="Pig" parent="." instance=ExtResource("5_58gbl")]
+position = Vector2(182, 728)
+
+[node name="PowerUp" parent="." instance=ExtResource("7_ix1sj")]
+position = Vector2(688, 166)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("8_ph0jp")
+
+[node name="PULabel" type="Label" parent="HUD"]
+offset_left = 27.0
+offset_top = 23.0
+offset_right = 199.0
+offset_bottom = 72.0
+metadata/_edit_use_anchors_ = true

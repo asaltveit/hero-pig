@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://d4idsp4gdhxf4"]
+
+[ext_resource type="Script" path="res://scripts/Pig.gd" id="1_i0yex"]
+[ext_resource type="Texture2D" uid="uid://bjjuq63qdusr7" path="res://assets/Pig/pig_left/pig_left.png" id="2_vif6a"]
+[ext_resource type="Texture2D" uid="uid://oa1o1awmtm3v" path="res://assets/Pig/pig_right/pig_sprite.png" id="3_byd7f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77cc3"]
+atlas = ExtResource("2_vif6a")
+region = Rect2(127, 0, 344, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hnb7"]
+atlas = ExtResource("2_vif6a")
+region = Rect2(571, 0, 344, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c264"]
+atlas = ExtResource("3_byd7f")
+region = Rect2(0, 0, 409, 292)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kburs"]
+atlas = ExtResource("3_byd7f")
+region = Rect2(409, 0, 409, 292)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wt4dt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77cc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hnb7")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c264")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kburs")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ihqs8"]
+radius = 94.0
+height = 230.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vw0x"]
+radius = 94.0
+height = 262.0
+
+[node name="Pig" type="CharacterBody2D"]
+script = ExtResource("1_i0yex")
+
+[node name="PigSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(380, 468)
+scale = Vector2(0.5, 0.489)
+sprite_frames = SubResource("SpriteFrames_wt4dt")
+animation = &"left"
+
+[node name="LeftCol" type="CollisionShape2D" parent="."]
+position = Vector2(390, 472)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_ihqs8")
+
+[node name="RightCol" type="CollisionShape2D" parent="."]
+position = Vector2(355, 472)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_3vw0x")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 321)
+process_callback = 0
+limit_bottom = 650
